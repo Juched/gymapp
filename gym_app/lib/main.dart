@@ -11,20 +11,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Gym',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme(
+          brightness: Brightness.light,
+          primary: Color.fromARGB(255, 255, 255, 255),
+          onPrimary: Colors.black,
+          // Colors that are not relevant to AppBar in LIGHT mode:
+          primaryVariant: Colors.grey,
+          secondary: Color.fromARGB(255, 45, 53, 102),
+          secondaryVariant: Colors.grey,
+          onSecondary: Color.fromARGB(255, 255, 255, 255),
+          background: Color.fromARGB(255, 247, 246, 249),
+          onBackground: Color.fromARGB(176, 0, 0, 0),
+          surface: Color.fromARGB(255, 45, 53, 102),
+          onSurface: Color.fromARGB(255, 255, 255, 255),
+          error: Color.fromARGB(255, 255, 0, 0),
+          onError: Colors.grey,
+        ),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Gym'),
     );
   }
 }
@@ -63,53 +69,39 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(
+            20, MediaQuery.of(context).padding.top + 30, 20, 0),
+        child: Row(
+          children: [
             Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              'Dashboard',
+              style: Theme.of(context).textTheme.headline3,
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.analytics),
+            label: 'Stats',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today),
+            label: 'History',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.task),
+            label: 'Plans',
+          ),
+        ],
+      ),
     );
   }
 }
