@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:gym_app/app/home/view/home_view.dart';
 
 class HomePage extends StatefulWidget {
   final int? currIndex;
@@ -21,8 +22,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _counter = 0;
   int currentBottomBarIndex = 1;
+  List<Widget> bars = [HomeView(), HomeView(), HomeView(), HomeView()];
 
   @override
   void initState() {
@@ -40,48 +41,43 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(
-            20, MediaQuery.of(context).padding.top + 30, 20, 0),
-        child: Row(
-          children: [
-            Text(
-              'Dashboard',
-              style: Theme.of(context).textTheme.headline3,
+      body: bars[currentBottomBarIndex],
+      bottomNavigationBar: _bottomNavBar(),
+    );
+  }
+
+  _bottomNavBar() {
+    return Container(
+        height: 55,
+        child: BottomNavigationBar(
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Colors.grey[500],
+          type: BottomNavigationBarType.shifting,
+          showSelectedLabels: false,
+          currentIndex: currentBottomBarIndex,
+          onTap: (value) {
+            setState(() {
+              currentBottomBarIndex = value;
+            });
+          },
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.analytics),
+              label: 'Stats',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_today),
+              label: 'History',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.task),
+              label: 'Plans',
             ),
           ],
-        ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Colors.grey[500],
-        type: BottomNavigationBarType.shifting,
-        showSelectedLabels: false,
-        currentIndex: currentBottomBarIndex,
-        onTap: (value) {
-          setState(() {
-            currentBottomBarIndex = value;
-          });
-        },
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.analytics),
-            label: 'Stats',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.calendar_today),
-            label: 'History',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.task),
-            label: 'Plans',
-          ),
-        ],
-      ),
-    );
+        ));
   }
 }
