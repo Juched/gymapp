@@ -23,11 +23,11 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int currentBottomBarIndex = 1;
-  List<Widget> bars = [HomeView(), HomeView(), HomeView(), HomeView()];
+  List<Widget> bars = [const HomeView(), const HomeView(), const HomeView(), const HomeView()];
 
   @override
   void initState() {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent,
     ));
     setState(() {
@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   _bottomNavBar() {
-    return Container(
+    return SizedBox(
         height: 55,
         child: BottomNavigationBar(
           selectedItemColor: Colors.black,

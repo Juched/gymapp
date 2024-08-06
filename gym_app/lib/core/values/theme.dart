@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -18,48 +17,48 @@ ThemeData get lightTheme {
 }
 
 TextStyle get headerTitleStyle {
-  return TextStyle(
+  return const TextStyle(
       color: Colors.black, fontSize: 28, fontWeight: FontWeight.w700);
 }
 
 TextStyle get bigTitleStyle {
-  return TextStyle(color: Colors.black, fontSize: 26);
+  return const TextStyle(color: Colors.black, fontSize: 26);
 }
 
 TextStyle get bigTitleStyleWhite {
-  return TextStyle(
+  return const TextStyle(
       color: Colors.white, fontSize: 26, fontWeight: FontWeight.w900);
 }
 
 TextStyle get titleStyle {
-  return TextStyle(
+  return const TextStyle(
     color: Colors.black,
     fontSize: 22,
   );
 }
 
 TextStyle get titleStyleBold {
-  return TextStyle(
+  return const TextStyle(
       color: Colors.black, fontSize: 22, fontWeight: FontWeight.bold);
 }
 
 TextStyle get titleStyleWhite {
-  return TextStyle(
+  return const TextStyle(
       color: Colors.white, fontSize: 22, fontWeight: FontWeight.w900);
 }
 
 TextStyle get smallTitleStyle {
-  return TextStyle(
+  return const TextStyle(
       color: Colors.black, fontSize: 18, fontWeight: FontWeight.w900);
 }
 
 TextStyle get smallTitleStyleWhite {
-  return TextStyle(
+  return const TextStyle(
       color: Colors.white, fontSize: 18, fontWeight: FontWeight.w900);
 }
 
 TextStyle get smallTitleStyleGrey {
-  return TextStyle(
+  return const TextStyle(
       color: Colors.grey, fontSize: 16, fontWeight: FontWeight.w500);
 }
 
@@ -69,24 +68,24 @@ TextStyle get smallTitleStyleBlue {
 }
 
 TextStyle get subTitleStyle {
-  return TextStyle(
+  return const TextStyle(
       color: Colors.white, fontSize: 16, fontWeight: FontWeight.w900);
 }
 
 TextStyle get subTitleStyleGrey {
-  return TextStyle(
+  return const TextStyle(
     color: Colors.grey,
     fontSize: 16,
   );
 }
 
 TextStyle get smalSubTitleStyle {
-  return TextStyle(
+  return const TextStyle(
       color: Colors.black, fontSize: 14, fontWeight: FontWeight.w900);
 }
 
 TextStyle get smalSubTitleStyleWhite {
-  return TextStyle(
+  return const TextStyle(
       color: Colors.white, fontSize: 14, fontWeight: FontWeight.w900);
 }
 

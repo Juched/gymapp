@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:gym_app/core/values/theme.dart';
 
 class HomeView extends StatelessWidget {
+  const HomeView({super.key});
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -30,7 +31,7 @@ class HomeView extends StatelessWidget {
         Container(
           height: size.height * .14,
           width: size.width,
-          margin: EdgeInsets.only(top: 10),
+          margin: const EdgeInsets.only(top: 10),
           decoration: BoxDecoration(
               color: Colors.transparent,
               border: Border.all(color: Colors.grey[300]!, width: 1)),
